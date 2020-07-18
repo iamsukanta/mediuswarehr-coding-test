@@ -14,6 +14,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use DB;
 use App\Http\Controllers\Input;
+use Response;
 
 class PagesController extends Controller
 {
@@ -170,7 +171,18 @@ class PagesController extends Controller
     public function getBufferPosts()
     {
         //Get Buffer posts
-        $bufferPosts = BufferPosting::orderBy('created_at', 'desc')->paginate(5);
+        $bufferPosts = BufferPosting::orderBy('created_at', 'desc')->with(['social_posts', 'groupInfo', 'accountInfo'])->paginate(100);
+
+        // dd($bufferPosts);
+
+        //Return collection
+        return response()->json(['data' => $bufferPosts], 200);
+    }
+
+    public function getDateFilterBufferPosts(Request $request)
+    {
+        //Get Buffer posts
+        $bufferPosts = BufferPosting::orderBy('created_at', 'desc')->where('created_at', 'like', '%'.$request->date_filter.'%')->with(['social_posts', 'groupInfo', 'accountInfo'])->paginate(100);
 
         // dd($bufferPosts);
 

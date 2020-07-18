@@ -17,4 +17,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/buffer-posts', 'PagesController@getBufferPosts');
+Route::get('buffer-posts', 'PagesController@getBufferPosts');
+Route::post('buffer-posts/date-filter', 'PagesController@getDateFilterBufferPosts');

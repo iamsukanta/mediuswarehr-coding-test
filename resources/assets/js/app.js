@@ -5,15 +5,17 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-
-require('./bootstrap');
-// require('./jquery-ui');
-// require('./Chart');
-// require('./bulk');
-
 // import Vue from "vue";
+
+
+require('./jquery-ui');
+require('./Chart');
+// require('./bulk');
+require("./bootstrap");
 window.Vue = require("vue");
 import BufferList from "./components/BufferList.vue";
+
+
 
 // Vue.component('app', require('./components/App.vue'));
 
