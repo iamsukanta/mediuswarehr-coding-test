@@ -98,6 +98,9 @@ Route::get('/calendar/', 'PagesController@calendar')->name('calendar');
 Route::get('/support/', 'PagesController@support')->name('support');
 Route::get('/start/', 'PagesController@start')->name('start');
 
+//buffer posts
+Route::get('/buffer-posts/', 'PagesController@bufferPosts')->name('buffer-posts');
+
 
 Route::post('/settings/timezone/', 'PagesController@history')->name('saveTimezone');
 

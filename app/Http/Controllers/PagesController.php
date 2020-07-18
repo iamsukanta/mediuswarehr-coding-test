@@ -167,6 +167,22 @@ class PagesController extends Controller
         return view('pages.calendar')->with('user', $user);
     }
 
+    public function getBufferPosts()
+    {
+        //Get Buffer posts
+        $bufferPosts = BufferPosting::orderBy('created_at', 'desc')->paginate(5);
+
+        // dd($bufferPosts);
+
+        //Return collection
+        return response()->json(['data' => $bufferPosts], 200);
+    }
+
+    public function bufferPosts()
+    {
+        return view('pages.buffer-posts');
+    }
+
     public function support()
     {
         $user = User::find(Auth::id());
