@@ -20,7 +20,7 @@ class BufferPosting extends Model
 
     public function postInfo()
     {
-        return $this->belongsTo(SocialPosts::Class,'id','social_post_id');
+        return $this->belongsTo(SocialPosts::Class,'id','post_id');
     }
 
 }
